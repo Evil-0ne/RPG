@@ -36,6 +36,7 @@ public class Battle {
             fightCallback.fightLost();
             System.exit(0);
             return true;
+
         } else if (defenderHealth <= 0) {
             System.out.printf("Враг повержен! Вы получаете %d опыт и %d золота%n", defender.getXp(), defender.getGold());
             attacker.setXp(attacker.getXp() + defender.getXp());
