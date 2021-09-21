@@ -26,17 +26,18 @@ public class Battle {
 //        int crit = attacker.crit();
         int defenderHealth = defender.getHP() - hit;
         if (hit != 0) {
-            System.out.println(String.format("%s Нанес удар в %d единиц!", attacker.getName(), hit));
-            System.out.println(String.format("У %s осталось %d единиц здоровья...", defender.getName(), defenderHealth));
+            System.out.printf("%s Нанес удар в %d единиц!%n", attacker.getName(), hit);
+            System.out.printf("У %s осталось %d единиц здоровья...%n", defender.getName(), defenderHealth);
         } else {
-            System.out.println(String.format("%s промахнулся!", attacker.getName()));
+            System.out.printf("%s промахнулся!%n", attacker.getName());
         }
         if (defenderHealth <= 0 && defender instanceof Hero) {
             System.out.println("Извините, вы пали в бою...");
             fightCallback.fightLost();
+            System.exit(0);
             return true;
         } else if (defenderHealth <= 0) {
-            System.out.println(String.format("Враг повержен! Вы получаете %d опыт и %d золота", defender.getXp(), defender.getGold()));
+            System.out.printf("Враг повержен! Вы получаете %d опыт и %d золота%n", defender.getXp(), defender.getGold());
             attacker.setXp(attacker.getXp() + defender.getXp());
             attacker.setGold(attacker.getGold() + defender.getGold());
             fightCallback.fightWin();

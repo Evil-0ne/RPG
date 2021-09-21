@@ -19,7 +19,7 @@ public abstract class Character implements Fighter {
     @Override
     public int attack() {
         if (dexterity * 4 > getRandomValue()) return strength;
-        else if (dexterity >= getRandomValue()) return strength * 2;
+        else if (dexterity/2 >= getRandomValue()) return strength * 2;
         else return 0;
     }
 

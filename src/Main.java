@@ -28,34 +28,26 @@ public class Main {
                     0,
                     0
             );
-            System.out.println(String.format("Спасти наш мир от драконов вызвался %s! Да будет его броня крепка и бицепс кругл!", player.getName()));
+            System.out.printf("Спасти наш мир от драконов вызвался %s! Да будет его броня крепка и бицепс кругл!%n", player.getName());
 
             printNavigation();
         }
 
         switch (string) {
-            case "1": {
+            case "1" -> {
                 System.out.println("Торговец еще не приехал");
                 command(br.readLine());
             }
-            break;
-            case "2": {
+            case "2" -> {
                 commitFight();
             }
-            break;
-            case "3":
-                System.exit(1);
-                break;
-            case "да":
-                command("2");
-                break;
-            case "нет": {
+            case "3" -> System.exit(1);
+            case "да" -> command("2");
+            case "нет" -> {
                 printNavigation();
                 command(br.readLine());
             }
-            break;
-            default:
-                System.out.println("Введите одну из доступных комманд.");
+            default -> System.out.println("Введите одну из доступных комманд.");
         }
         command(br.readLine());
     }
@@ -67,8 +59,8 @@ public class Main {
         battle.fight(player, createMonster(), new FightCallback() {
             @Override
             public void fightWin() {
-                System.out.println(String.format("%s победил! Теперь у вас %d опыта и %d золота, а также осталось %d единиц здоровья.", player.getName(), player.getXp(), player.getGold(), player.getHP()));
-                System.out.println("Желаете продолжить поход или вернуться в город? (да/нет)");
+                System.out.printf("%s победил! Теперь у вас %d опыта и %d золота, а также осталось %d единиц здоровья.%n", player.getName(), player.getXp(), player.getGold(), player.getHP());
+                System.out.println("Желаете продолжить поход? (да/нет)");
                 try {
                     command(br.readLine());
                 } catch (IOException e) {
