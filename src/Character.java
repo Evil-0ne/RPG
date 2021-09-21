@@ -1,4 +1,5 @@
 public abstract class Character implements Fighter {
+
     private String name;
     private int HP;
     private int strength;
